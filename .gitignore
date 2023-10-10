@@ -1,1 +1,6 @@
+# Ignore credentials file
 auth.txt
+
+# Ignore ipython checkpoints
+.ipynb_checkpoints
+**/*.ipynb_checkpoints/
