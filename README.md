@@ -1,4 +1,23 @@
 # data-512-homework_2
+Zachary Bowyer
+10/10/2023
+University Of Washington
+Data 512
+
+# Goal of the project
+???
+
+# License of wikipedia data
+Wikipedia's text content, in a nutshell, can be used under the terms of the Creative Commons
+Attribution Share-Alike license (CC-BY-SA); unless otherwise indicated, it can also be used
+under the terms of the GNU Free Documentation License. The global terms of use dictate the ways
+content from Wikimedia sites can be properly attributed when used under the CC-BY-SA license. 
+See: https://en.wikipedia.org/wiki/Wikipedia:Reusing_Wikipedia_content for more details
+
+# License of part of the software
+Some code, which is properly referenced in it's respective location
+was developed by Dr. David W. McDonald for use in DATA 512, a course in the UW MS Data Science degree program. This code is provided under the Creative Commons CC-BY
+license. Revision 1.2 - August 14, 2023. Some of the original code made be modified, however it still falls under the Creative Commons license.
 
 # How to reproduce the analysis
 Install anaconda
@@ -6,6 +25,11 @@ Install packages from environment.yml
 Create jupyter kernel from conda env
 Run jupyter
 run cells
+
+# All file and descriptions
+
+# Notes for researchers
+The API takes a long time to run. This could be improved by serving bulk requests instead of one at a time. 
 
 # Research implications
 
