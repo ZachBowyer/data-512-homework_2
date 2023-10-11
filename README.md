@@ -30,10 +30,11 @@ Install anaconda
 Install packages from environment.yml  
 Create jupyter kernel from conda env  
 Run jupyter  
-run cells  
+Run ../src/Analysis.ipynb  
+run all cells  
 
 # All file and descriptions
-../data/CityArticles_withscores.csv - Temporary storage of scors of stored articles  
+../data/CityArticles_withscores.csv - Temporary storage of scores of stored articles  
 ../data/PopulationEstimates.csv - 2022 census data for US regions/divisions/states/territories  
 ../data/States_by_region.csv - Stores each region/division states belong to  
 ../data/us_cities_by_state_SEPT2023.csv - Article titles and url for each city in states  
@@ -46,6 +47,63 @@ auth.txt - Stores credentials (Hidden, will have to make yourself)
 LICENSE - MIT  
 Readme.md - Documentation  
 environment.yml - Development environement information  
+  
+# Data schema:  
+../data/CityArticles_withscores.csv:   
+    state,article_title,url,article_quality,revision_id  
+../data/PopulationEstimates.csv:   
+        SUMLEV,REGION,DIVISION,STATE,NAME,ESTIMATESBASE2020,POPESTIMATE2020,POPESTIMATE2021,  
+        POPESTIMATE2022,NPOPCHG_2020,NPOPCHG_2021,NPOPCHG_2022,BIRTHS2020,BIRTHS2021,BIRTHS2022,  
+        DEATHS2020,DEATHS2021,DEATHS2022,NATURALCHG2020,NATURALCHG2021,NATURALCHG2022,INTERNATIONALMIG2020,  
+        INTERNATIONALMIG2021,INTERNATIONALMIG2022,DOMESTICMIG2020,DOMESTICMIG2021,DOMESTICMIG2022,  
+        NETMIG2020,NETMIG2021,NETMIG2022,RESIDUAL2020,RESIDUAL2021,RESIDUAL2022,RBIRTH2021,RBIRTH2022,  
+        RDEATH2021,RDEATH2022,RNATURALCHG2021,RNATURALCHG2022,RINTERNATIONALMIG2021,RINTERNATIONALMIG2022,  
+        RDOMESTICMIG2021,RDOMESTICMIG2022,RNETMIG2021,RNETMIG2022  
+../data/States_by_region.csv:   
+    REGION,DIVISION,STATE  
+../data/us_cities_by_state_SEPT2023.csv:  
+    state,page_title,url  
+../data/wp_scored_city_articles_by_state.csv:   
+    state,article_title,url,article_quality,revision_id,state_population,region,regional_division,region_population  
+
+# Data originations:
+./data/PopulationEstimates.csv¶
+This data was found on the US census bureau. This was 2022 data.   
+This can be found at https://www.census.gov/data/tables/time-series/demo/popest/2020s-state-total.html.    
+https://www2.census.gov/programs-surveys/popest/datasets/2020-2022/state/totals/NST-EST2022-ALLDATA.csv  
+https://www.census.gov/data/tables/time-series/demo/popest/2020s-state-total.html  
+
+./data/States_by_region.csv
+The shared google drive for Homework 2 by UW Data 512 provides this file.   
+However, we are using the regional and divisional agglomerations as defined by the US Census Bureau.   
+
+./data/us_cities_by_state_SEPT2023.csv
+The shared google drive for Homework 2 by UW data 512 provies this file.
+However the Wikipedia Category:Lists of cities in the United States by
+state was crawled to generate a list of Wikipedia article pages about US
+cities from each state.
+
+The rest of the data were created from merging the above datasets as well as creating new fields.  
+
+# What are ORS scores?
+https://en.wikipedia.org/wiki/Wikipedia:Content_assessment  
+This was originally an acronym for "Objective Revision Evaluation Service" but was simply renamed “ORES”.   
+ORES is a machine learning tool that can provide estimates of Wikipedia article quality.  
+The article quality estimates are, from best to worst:  
+FA - Featured article  
+GA - Good article (sometimes called A-class)  
+B - B-class article  
+C - C-class article  
+Start - Start-class article  
+Stub - Stub-class article  
+
+# API info  
+Page revision: 
+    https://www.mediawiki.org/wiki/API:Info  
+    https://www.mediawiki.org/wiki/API:Main_page   
+ORES: 
+    https://ores.wikimedia.org/docs    
+    https://wikitech.wikimedia.org/wiki/Machine_Learning/LiftWing/Usage    
 
 # Notes for researchers
 The API takes a long time to run. This could be improved by serving bulk requests instead of one at a time. 
